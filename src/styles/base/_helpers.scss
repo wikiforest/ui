@@ -1,0 +1,25 @@
+.clearfix {
+  @include clearfix();
+}
+
+.text-truncate {
+  @include text-truncate();
+}
+
+.container {
+  @include clearfix();
+  .content {
+    max-width: $content-width;
+    padding-left: $content-padding;
+    padding-right: $content-padding;
+    margin: 0 auto;
+  }
+}
+
+.list-unstyled {
+  @include list-unstyled();
+}
+
+.fluid {
+  @include fluid();
+}

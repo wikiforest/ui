@@ -1,0 +1,41 @@
+// About Alex functions
+
+// 字符串替换
+// @see https://github.com/twbs/bootstrap/blob/master/scss/_functions.scss#L64
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+@function base-color($color, $dark: $lightness-text-dark, $light: $lightness-text-light) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+
+  $lightness: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+  @return if($lightness >= $lightness-contrasted-threshold, $dark, $light);
+}
+
+@function negativify-map($map) {
+  $result: ();
+  @each $key, $value in $map {
+    @if $key != 0 {
+      $result: map-merge($result, ("n" + $key: (-$value)));
+    }
+  }
+  @return $result;
+}
+
+@function tint-color($color, $level) {
+  @return mix(white, $color, $level * $theme-color-interval);
+}
+
+@function shade-color($color, $level) {
+  @return mix(black, $color, $level * $theme-color-interval);
+}

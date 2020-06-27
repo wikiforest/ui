@@ -1,0 +1,120 @@
+$size-unit: rem !default;
+
+@mixin media-query($device: $width-breakpoint) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+@mixin resizable($direction) {
+  overflow: auto;
+  resize: $direction;  // horizontal, vertical, both
+}
+
+@mixin normal-text {
+  font-family: $font-family-base;
+  // We deliberately do NOT reset font-size or overflow-wrap / word-wrap.
+  font-style: normal;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-base;
+  text-align: left; // Fallback for where `start` is not supported
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-break: normal;
+  word-spacing: normal;
+  white-space: normal;
+  line-break: auto;
+}
+
+// 截断文字（inline-block / block）
+@mixin text-truncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 按钮生成
+@mixin button-variant(
+  $background,
+  $border,
+  $color: base-color($background),
+  $hover-background: darken($background, 7%),
+  $hover-border: darken($border, 10%),
+  $hover-color: base-color($hover-background),
+  $active-background: darken($background, 10%),
+  $active-border: darken($border, 12%),
+  $active-color: base-color($active-background)
+) {
+  color: $color;
+  background-color: $background !important;
+  border-color: $border !important;
+  cursor: pointer;
+
+  &:hover, &:focus, &.focus {
+    color: $hover-color !important;
+    background-color: $hover-background !important;
+    border-color: $hover-border !important;
+  }
+
+  &:active, &.active {
+    color: $active-color !important;
+    background-color: $active-background !important;
+    border-color: $active-border !important;
+  }
+  
+  &:disabled, &.disabled {
+    color: $color !important;
+    background-color: $background !important;
+    border-color: $border !important;
+  }
+}
+
+@mixin list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
+@mixin generate-utility($utility, $infix: "") {
+  $values: map-get($utility, values);
+  $properties: map-get($utility, property);
+  $class: map-get($utility, class);
+  $query: map-get($utility, query);
+
+  @if type-of($values) == "string" or type-of(nth($values, 1)) != "list" {
+    $values: zip($values, $values);
+  }
+
+  @each $key, $value in $values {
+    @if type-of($properties) == "string" {
+      $properties: append((), $properties);
+    }
+    $property-class: if(map-has-key($utility, class), map-get($utility, class), nth($properties, 1));
+    $property-class: if($property-class == null, "", $property-class);
+
+    $property-class-modifier: if($key, if($property-class == "" and $infix == "", "", "-") + $key, "");
+
+    @if $value != null {
+      .#{$property-class + $infix + $property-class-modifier} {
+        @each $property in $properties {
+          #{$property}: $value !important;
+        }
+      }
+    }
+  }
+}

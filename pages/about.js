@@ -1,18 +1,15 @@
 import useSWR from 'swr'
 import { Fragment } from 'react'
-import Button from '../src/components/Button'
 import { useFetch } from '../src/hooks/hookFetch'
+import DefaultLayout from '../src/components/layouts/DefaultLayout'
+import { Button, majorScale, Text, Pane } from 'evergreen-ui'
 
 function Profile() {
   const { data } = useFetch('POST', 'http://api.wikiforest.com')
   return (
-    <Fragment>
-      <Button />
-      <ul>
-        {!data && <li>加载中...</li>}
-        {data && data.map(post => <li key={post.id}>{post.title}</li>)}
-      </ul>
-    </Fragment>
+    <DefaultLayout>
+      
+    </DefaultLayout>
   )
 }
 

@@ -1,0 +1,358 @@
+// Utilities
+
+$utilities: (
+  "vertical-align": (
+    property: vertical-align,
+    class: vertical-align,
+    values: baseline top middle bottom text-bottom text-top
+  ),
+  "float": (
+    query: true,
+    property: float,
+    class: float,
+    values: left right none
+  ),
+  "text-align": (
+    property: text-align,
+    class: text,
+    values: left right center inherit
+  ),
+  "overflow": (
+    property: overflow,
+    class: overflow,
+    values: auto hidden,
+  ),
+  "display": (
+    query: true,
+    property: display,
+    class: d,
+    values: none inline inline-block block flex inline-flex table-cell
+  ),
+  "align-items": (
+    property: align-items,
+    class: align-items,
+    values: (
+      start: flex-start,
+      end: flex-end,
+      center: center,
+      baseline: baseline,
+      stretch: stretch,
+    )
+  ),
+  "position": (
+    property: position,
+    class: pos,
+    values: static relative absolute fixed sticky
+  ),
+  "width": (
+    query: true,
+    property: width,
+    class: w,
+    values: (
+      25: 25%,
+      50: 50%,
+      75: 75%,
+      100: 100%,
+      auto: auto
+    )
+  ),
+  "height": (
+    query: true,
+    property: height,
+    class: h,
+    values: (
+      25: 25%,
+      50: 50%,
+      75: 75%,
+      100: 100%,
+      auto: auto
+    )
+  ),
+  "border": (
+    property: border,
+    values: (
+      null: $border-width solid $border-color,
+      0: 0,
+    )
+  ),
+  "border-top": (
+    property: border-top,
+    values: (
+      null: $border-width solid $border-color,
+      0: 0,
+    )
+  ),
+  "border-right": (
+    property: border-right,
+    values: (
+      null: $border-width solid $border-color,
+      0: 0,
+    )
+  ),
+  "border-bottom": (
+    property: border-bottom,
+    values: (
+      null: $border-width solid $border-color,
+      0: 0,
+    )
+  ),
+  "border-left": (
+    property: border-left,
+    values: (
+      null: $border-width solid $border-color,
+      0: 0,
+    )
+  ),
+  "border-color": (
+    property: border-color,
+    class: border,
+    values: map-merge($theme-colors, ("white": $white))
+  ),
+  "max-width": (
+    query: true,
+    property: max-width,
+    class: mw,
+    values: (
+      100: 100%,
+      75: 75%,
+      50: 50%,
+      25: 25%,
+      0: 0
+    )
+  ),
+  "max-height": (
+    property: max-height,
+    class: mh,
+    values: (100: 100%)
+  ),
+  "viewport-width": (
+    property: width,
+    class: vw,
+    values: (100: 100vw)
+  ),
+  // Flex utilities
+  "flex": (
+    property: flex,
+    values: (fill: 1 1 auto)
+  ),
+  "flex-direction": (
+    property: flex-direction,
+    class: flex,
+    values: row column row-reverse column-reverse
+  ),
+  "flex-grow": (
+    property: flex-grow,
+    class: flex,
+    values: (
+      grow-0: 0,
+      grow-1: 1,
+    )
+  ),
+  "flex-shrink": (
+    property: flex-shrink,
+    class: flex,
+    values: (
+      shrink-0: 0,
+      shrink-1: 1,
+    )
+  ),
+  "flex-wrap": (
+    property: flex-wrap,
+    class: flex,
+    values: wrap nowrap wrap-reverse
+  ),
+  "justify-content": (
+    property: justify-content,
+    class: justify-content,
+    values: (
+      start: flex-start,
+      end: flex-end,
+      center: center,
+      between: space-between,
+      around: space-around,
+    )
+  ),
+  // Margin utilities
+  "margin": (
+    query: true,
+    property: margin,
+    class: m,
+    values: map-merge($spacers, (auto: auto))
+  ),
+  "margin-x": (
+    query: true,
+    property: margin-right margin-left,
+    class: mx,
+    values: map-merge($spacers, (auto: auto))
+  ),
+  "margin-y": (
+    query: true,
+    property: margin-top margin-bottom,
+    class: my,
+    values: map-merge($spacers, (auto: auto))
+  ),
+  "margin-top": (
+    query: true,
+    property: margin-top,
+    class: mt,
+    values: map-merge($spacers, (auto: auto))
+  ),
+  "margin-right": (
+    query: true,
+    property: margin-right,
+    class: mr,
+    values: map-merge($spacers, (auto: auto))
+  ),
+  "margin-bottom": (
+    query: true,
+    property: margin-bottom,
+    class: mb,
+    values: map-merge($spacers, (auto: auto))
+  ),
+  "margin-left": (
+    query: true,
+    property: margin-left,
+    class: ml,
+    values: map-merge($spacers, (auto: auto))
+  ),
+  // Padding utilities
+  "padding": (
+    query: true,
+    property: padding,
+    class: p,
+    values: $spacers
+  ),
+  "padding-x": (
+    query: true,
+    property: padding-right padding-left,
+    class: px,
+    values: $spacers
+  ),
+  "padding-y": (
+    query: true,
+    property: padding-top padding-bottom,
+    class: py,
+    values: $spacers
+  ),
+  "padding-top": (
+    query: true,
+    property: padding-top,
+    class: pt,
+    values: $spacers
+  ),
+  "padding-right": (
+    query: true,
+    property: padding-right,
+    class: pr,
+    values: $spacers
+  ),
+  "padding-bottom": (
+    query: true,
+    property: padding-bottom,
+    class: pb,
+    values: $spacers
+  ),
+  "padding-left": (
+    query: true,
+    property: padding-left,
+    class: pl,
+    values: $spacers
+  ),
+  // Text
+  "font-weight": (
+    property: font-weight,
+    class: font-weight,
+    values: $font-weights
+  ),
+  "font-size": (
+    property: font-size,
+    class: font-size,
+    values: $font-sizes
+  ),
+  "color": (
+    property: color,
+    class: text,
+    values: map-merge(
+      $theme-colors,
+      (
+        "white": $white,
+        "body": $body-color,
+        "reset": inherit,
+      )
+    )
+  ),
+  "line-height": (
+    property: line-height,
+    class: line-height,
+    values: (
+      1: 1,
+      base: $line-height-base
+    )
+  ),
+  "background-color": (
+    property: background-color,
+    class: bg,
+    values: map-merge(
+      $theme-colors,
+      (
+        "white": $white,
+        "body": $body-bg,
+        "reset": inherit,
+      )
+    )
+  ),
+  "white-space": (
+    property: white-space,
+    class: text,
+    values: (
+      wrap: normal,
+      nowrap: nowrap,
+    )
+  ),
+  "text-decoration": (
+    property: text-decoration,
+    class: text-decoration,
+    values: none underline line-through
+  ),
+  "font-style": (
+    property: font-style,
+    class: font,
+    values: italic normal
+  ),
+  "word-wrap": (
+    property: word-wrap,
+    class: text,
+    values: (break: break-word)
+  ),
+  "user-select": (
+    property: user-select,
+    class: select,
+    values: all auto none
+  ),
+  "cursor": (
+    property: cursor,
+    class: cursor,
+    values: default auto pointer text,
+  ),
+  "visibility": (
+    property: visibility,
+    class: null,
+    values: (
+      visible: visible,
+      invisible: hidden,
+    )
+  )
+) !default;
+
+@each $key, $utility in $utilities {
+  @include generate-utility($utility);
+}
+
+@include media-query() {
+  @each $key, $utility in $utilities {
+    $query: map-get($utility, query);
+    @if $query {
+      @include generate-utility($utility, '-md');
+    }
+  }
+}

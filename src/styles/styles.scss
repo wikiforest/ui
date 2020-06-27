@@ -1,5 +1,31 @@
+@import './base';
+@font-face
+{
+  font-family: EveryFreakinNight;
+  src: url('./fonts/RoundHand-Free-2.ttf'),
+    url('./fonts/RoundHand-Free-1.otf');
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+:root{
+  min-height: 100%;
+}
+
+.meta-size {
+  font-size: 30px;
+  line-height: 30px;
+}
+
+.logo {
+  font-family: EveryFreakinNight;
+  @extend .meta-size;
+}
+
+.color-blue {
+  color: $color-blue;
 }
