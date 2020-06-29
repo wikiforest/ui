@@ -18,14 +18,29 @@
 
 .meta-size {
   font-size: 30px;
-  line-height: 30px;
+  line-height: 32px;
 }
 
 .logo {
-  font-family: EveryFreakinNight;
+  // font-family: EveryFreakinNight;
   @extend .meta-size;
 }
 
 .color-blue {
   color: $color-blue;
+}
+
+.bg-volet {
+  background-color: #dddaec;
+}
+
+.filter-blur {
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
+  -ms-filter: blur(1px);
+  filter: blur(1px);
+}
+
+.text-mute {
+  color: #414142;
 }

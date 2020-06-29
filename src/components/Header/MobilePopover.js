@@ -1,4 +1,4 @@
-import { Menu, Popover, Button, MenuIcon, Position } from "evergreen-ui";
+import { Menu, Popover, Button, MenuIcon, Position, LayoutGridIcon } from "evergreen-ui";
 import MENU from "../../constants/menu";
 import { useRouter } from 'next/router'
 
@@ -33,7 +33,7 @@ export default function MobilePopover() {
         </Menu>
       }
     >
-      <Button appearance="minimal" className="meta-size d-none d-md-inline-block"><MenuIcon /></Button>
+      <Button appearance="minimal" className="meta-size d-none d-md-inline-block"><LayoutGridIcon /></Button>
     </Popover>
   )
 }
