@@ -1,4 +1,4 @@
-import { Menu, Popover, Button, MenuIcon, Position, LayoutGridIcon } from "evergreen-ui";
+import { Menu, Popover, Button, Position, LayoutGridIcon, SearchInput } from "evergreen-ui";
 import MENU from "../../constants/menu";
 import { useRouter } from 'next/router'
 
@@ -23,12 +23,14 @@ export default function MobilePopover() {
                 </a>
               </Menu.Item>
             )}
+            <Menu.Item intent="none">
+              <SearchInput className="bg-light" width="200px" appearance="none" placeholder="搜一搜" />
+            </Menu.Item>
           </Menu.Group>
           <Menu.Divider />
-          <Menu.Group title="destructive">
-            <Menu.Item icon="log-out" intent="none">
-              离开
-            </Menu.Item>
+          <Menu.Group title="会话">
+            <Menu.Item icon="user" intent="none">注册</Menu.Item>
+            <Menu.Item icon="log-in" intent="none">登录</Menu.Item>
           </Menu.Group>
         </Menu>
       }
