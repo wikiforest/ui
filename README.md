@@ -9,6 +9,7 @@
 First, start the [backend service](https://github.com/wikiforest/server "backend service"), then, start the frontend service:
 
 ```bash
+docker-compose build
 docker-compose up
 ```
 
