@@ -1,8 +1,9 @@
 ## Getting Started
 
-## Change host
+### Change host
 ```
 127.0.0.1       wikiforest.com
+127.0.0.1       www.wikiforest.com
 127.0.0.1       api.wikiforest.com
 ```
 
