@@ -5,7 +5,7 @@ import DefaultLayout from '../src/components/layouts/DefaultLayout'
 import { Button, majorScale, Text, Pane } from 'evergreen-ui'
 
 function Profile() {
-  const { data } = useFetch('POST', 'http://api.wikiforest.com')
+  const { data } = useFetch('POST', 'https://api.wikiforest.com')
   return (
     <DefaultLayout>
       
