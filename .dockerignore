@@ -1,5 +1,15 @@
 .git
 README.md
-**/.dockerignore
+.dockerignore
 docker-compose.yml
 node_modules
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.DS_Store
+/build
+
+/.next/
+/out/
