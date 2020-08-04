@@ -5,6 +5,7 @@ ENV PORT 3000
 WORKDIR /opt/www
 
 COPY package*.json ./
+COPY yarn.lock ./
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
     && yarn
