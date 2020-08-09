@@ -17,7 +17,7 @@ export default function Header(props) {
   return (
     <header>
       {billboard && <div className="p-3 bg-dark">
-        <nav className="w-75 w-md-100 mx-auto">
+        <nav className="w-70 w-md-100 mx-auto">
           <div className="px-3 text-center">
             <Link href="#">
               <a className="text-light font-weight-bold">认识世界，也让世界认识你。</a>
@@ -26,7 +26,7 @@ export default function Header(props) {
         </nav>
       </div>}
       <div className="p-3 bg-white border-bottom">
-        <nav className="w-75 d-flex w-md-100 mx-auto">
+        <nav className="w-70 d-flex w-md-100 mx-auto">
           <Heading>
             <Link href="/">
               <a className="text-decoration-none logo">{SITE_NAME}</a>

@@ -8,7 +8,7 @@ export default function DefaultLayout(props) {
     <BlankLayout>
       <Header billboard={billboard} />
       <Pane className="bg-light">
-        <Pane className="w-75 w-md-100 m-auto">
+        <Pane className="w-70 w-md-100 m-auto">
           { props.children }
         </Pane>
       </Pane>

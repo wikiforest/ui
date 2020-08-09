@@ -1,3 +1,3 @@
 export const
-  SITE_NAME = 'Wiki',
+  SITE_NAME = 'Define Me',
   SITEM_AA = 'aa'

@@ -17,6 +17,10 @@
   min-height: 100%;
 }
 
+body {
+  background-color: $color-light;
+}
+
 .meta-size {
   font-size: 30px;
   line-height: 32px;

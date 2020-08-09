@@ -1,9 +1,10 @@
 $size-unit: rem !default;
 
-@mixin media-query($device: $width-breakpoint) {
-  @media screen and (max-width: $device) {
-    @content;
-  }
+@mixin media-query($max: null) {
+
+    @media screen and (max-width: $max) {
+      @content;
+    }
 }
 
 @mixin fluid {

@@ -1,17 +1,20 @@
-import DefaultLayout from '../../src/components/layouts/DefaultLayout'
-import { Pane, TextInput, TextInputField, Heading, Button } from 'evergreen-ui'
+import { Pane, TextInput, TextInputField, Text, Button } from 'evergreen-ui'
 import { Component } from 'react'
 import { SITE_NAME } from '../../src/constants/site'
 import Link from 'next/link'
+import BlankLayout from '../../src/components/layouts/BlankLayout'
 
 function Profile() {
   return (
-    <DefaultLayout billboard={true}>
-      <Pane className="d-flex d-md-block justify-content-center">
-        <Pane className="w-50 w-md-100 d-inline-block p-3 py-5">
+    <BlankLayout billboard={true}>
+      <Pane className="d-flex justify-content-center px-3 py-5 py-xs-2">
+        <Pane
+          style={{borderRadius: '10px', maxWidth: '450px', width: '100%'}}
+          className="d-inline-block p-3 py-5 border bg-white"
+        >
           <h1 className="text-center">{SITE_NAME}</h1>
-          <p className="font-weight-lighter text-center">{SITE_NAME}将由您来构筑。</p>
-          <form className="p-4" style={{borderRadius: '10px'}}>
+          <p className="font-weight-bold text-center" style={{color: '#adb5bd'}}>认识世界，也让世界认识你</p>
+          <form className="p-4">
             <TextInputField
               label="电子邮件"
               inputHeight={40}
@@ -55,7 +58,7 @@ function Profile() {
           </form>
         </Pane>
       </Pane>
-    </DefaultLayout>
+    </BlankLayout>
   )
 }
 
