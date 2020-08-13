@@ -6,7 +6,7 @@ import BlankLayout from '../../src/components/layouts/BlankLayout'
 
 function Profile() {
   return (
-    <BlankLayout billboard={true}>
+    <BlankLayout billboard={true} title="账户注册">
       <Pane className="d-flex justify-content-center px-3 py-5 py-xs-2">
         <Pane
           style={{borderRadius: '10px', maxWidth: '450px', width: '100%'}}
